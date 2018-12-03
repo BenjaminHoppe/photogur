@@ -1,5 +1,6 @@
 <h1>Pictures</h1>
 <h2>And maybe some words as well </h2>
+<%= link_to("New Picture", "/pictures/new") %>
 
 <% @pictures.each do |picture| %>
   <p><%= picture.title %> <%= picture.artist  %></p>
