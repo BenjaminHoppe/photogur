@@ -1,2 +1,7 @@
 <h1>Pictures</h1>
 <h2>And maybe some words as well </h2>
+
+<% @pictures.each do |picture| %>
+  <p><%= picture.title %> <%= picture.artist  %></p>
+  <img src="<%= picture.url %>" alt="<%=  picture.title %>">
+<% end %>
