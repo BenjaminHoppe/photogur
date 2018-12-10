@@ -1,8 +1,9 @@
 class PicturesController < ApplicationController
-  
+
 
   def index
-    @pictures = Picture.all
+    @pictures = Picture.where("created_at > ?",  Time.now - 1.month)
+    @old_pictures = Picture.where("created_at < ?",  Time.now - 1.month)
   end
 
   def show
@@ -32,14 +33,14 @@ class PicturesController < ApplicationController
   end
 
   def update
-    @picture.Picture.find(params[:id])
+    @picture = Picture.find(params[:id])
 
     @picture.title = params[:picture][:title]
-    @pictue.artist = params[:picture][:artist]
-    @picture.url = params[:picture][:artist]
+    @picture.artist = params[:picture][:artist]
+    @picture.url = params[:picture][:url]
 
     if @picture.save
-      redirect_to "/pictures/#{pictue.id}"
+      redirect_to "/pictures/#{@picture.id}"
     else
       render :edit
     end
@@ -50,4 +51,17 @@ class PicturesController < ApplicationController
     @picture.destroy
     redirect_to "/pictures"
   end
+
+  def created_at
+
+  end
+
+
+
+
+
+
+
+
+
 end

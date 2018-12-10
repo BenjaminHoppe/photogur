@@ -1,0 +1,6 @@
+img {
+  max-width: 250px;
+}
+img:hover {
+  opacity: 0.5;
+}

@@ -3,6 +3,13 @@
 <%= link_to("New Picture", "/pictures/new") %>
 
 <% @pictures.each do |picture| %>
-  <p><%= picture.title %> <%= picture.artist  %></p>
-  <img src="<%= picture.url %>" alt="<%=  picture.title %>">
+  <p><%= picture.title %> by: <%= picture.artist  %></p>
+  <%= link_to(image_tag(picture.url), "/pictures/#{picture.id}") %>
+<% end %>
+
+
+<h2>Pictures older than a month:</h2>
+<% @old_pictures.each do |picture| %>
+<p><%= picture.title %> by: <%= picture.artist  %></p>
+<%= link_to(image_tag(picture.url), "/pictures/#{picture.id}") %>
 <% end %>
