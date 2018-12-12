@@ -1,14 +1,13 @@
 class PicturesController < ApplicationController
-
-
   def index
+    @pictures = Picture.all
     @pictures = Picture.where("created_at > ?",  Time.now - 1.month)
     @old_pictures = Picture.where("created_at < ?",  Time.now - 1.month)
   end
 
   def show
    @picture = Picture.find(params[:id])
- end
+  end
 
   def new
     @picture = Picture.new
@@ -51,17 +50,4 @@ class PicturesController < ApplicationController
     @picture.destroy
     redirect_to "/pictures"
   end
-
-  def created_at
-
-  end
-
-
-
-
-
-
-
-
-
 end

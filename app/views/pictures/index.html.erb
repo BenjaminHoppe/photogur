@@ -2,10 +2,14 @@
 <h2>And maybe some words as well </h2>
 <%= link_to("New Picture", "/pictures/new") %>
 
+
 <% @pictures.each do |picture| %>
-  <p><%= picture.title %> by: <%= picture.artist  %></p>
-  <%= link_to(image_tag(picture.url), "/pictures/#{picture.id}") %>
+ <p><%= picture.title %>, <%= picture.artist %></p>
+
+ <%= link_to(image_tag(picture.url), "/pictures/#{picture.id}") %>
 <% end %>
+
+
 
 
 <h2>Pictures older than a month:</h2>
