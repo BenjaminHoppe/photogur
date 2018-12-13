@@ -1,4 +1,6 @@
 class PicturesController < ApplicationController
+  before_action :ensure_logged_in, except: [:show, :index]
+
   def index
     @pictures = Picture.all
     @pictures = Picture.where("created_at > ?",  Time.now - 1.month)
